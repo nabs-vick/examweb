@@ -1,0 +1,199 @@
+{% extends "commons/base.html" %}
+{% load static %}
+{% block title %}shop details{% endblock title %}
+{% block content %}
+
+{% comment %} 
+        <!-- Modal Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Search End --> {% endcomment %}
+
+
+        <!-- Single Product Start -->
+        <div class="container-fluid py-5 mt-5">
+            <div class="container py-5">
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-8 col-xl-9">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="border rounded">
+                                    
+                                    <img src="{{ service.image.url }}" class="img-fluid rounded" alt="Image">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h4 class="fw-bold mb-3">{{service.name}}</h4>
+                                <p class="mb-3">{{service.category}}</p>
+                                <h5 class="fw-bold mb-3">${{service.price}}</h5>
+                                <div class="d-flex mb-4">
+                                    <i class="fa fa-star text-secondary"></i>
+                                    <i class="fa fa-star text-secondary"></i>
+                                    <i class="fa fa-star text-secondary"></i>
+                                    <i class="fa fa-star text-secondary"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p class="mb-4"> {{service.description}}</p>
+                                <div class="input-group quantity mb-5" style="display: inline-block;">
+                                    <div class="">
+                                        <p >Quantity:
+                                        
+                                        <select classs="form-select mb-1 " id="qty-cart">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </p>
+                                    </div>
+                                </div>
+                                <button type="button" value="{{ service.id }}" id="add-cart" class="btn btn-secondary border-secondary rounded-pill px-4 py-2 mb-4 text-primary" ><i class="fa fa-shopping-bag me-2 text-primary"></i>add to cart</button>
+                            </div>
+                            <div class="col-lg-12">
+                                <nav>
+                                    <div class="nav nav-tabs mb-3">
+                                        <button class="nav-link active border-white border-bottom-0" type="button" role="tab"
+                                            id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
+                                            aria-controls="nav-about" aria-selected="true">Description</button>
+                                        <button class="nav-link border-white border-bottom-0" type="button" role="tab"
+                                            id="nav-mission-tab" data-bs-toggle="tab" data-bs-target="#nav-mission"
+                                            aria-controls="nav-mission" aria-selected="false">Reviews</button>
+                                    </div>
+                                </nav>
+                                <div class="tab-content mb-5">
+                                    <div class="tab-pane active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                                        <p>{{ service.description }}</p>
+                                    </div>
+                                    <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
+                                        <div class="d-flex">
+                                            {% comment %} <img src="{% static 'img/avatar.jpg' %}" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt=""> {% endcomment %}
+                                            <div class="">
+                                                <p class="mb-2" style="font-size: 14px;">April 12, 2024</p>
+                                                <div class="d-flex justify-content-between">
+                                                    <h5>Victor Kemboi</h5>
+                                                    <div class="d-flex mb-3">
+                                                        <i class="fa fa-star text-secondary"></i>
+                                                        <i class="fa fa-star text-secondary"></i>
+                                                        <i class="fa fa-star text-secondary"></i>
+                                                        <i class="fa fa-star text-secondary"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <p>I was amazed at how quickly my order arrived. The cucumbers and lemons were fresh and ready to use.
+                                                     Highly recommend for those who need fresh produce in a pinch </p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex">
+                                            {% comment %} <img src="{% static 'img/avatar.jpg' %}" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt=""> {% endcomment %}
+                                            <div class="">
+                                                <p class="mb-2" style="font-size: 14px;">April 12, 2024</p>
+                                                <div class="d-flex justify-content-between">
+                                                    <h5>Samantha Mwende</h5>
+                                                    <div class="d-flex mb-3">
+                                                        <i class="fa fa-star text-secondary"></i>
+                                                        <i class="fa fa-star text-secondary"></i>
+                                                        <i class="fa fa-star text-secondary"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <p class="text-dark">Loved the eco-friendly packaging! My spinach and tomatoes were well-protected and fresh. A guilt-free way to shop sustainably </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xl-3">
+                        <div class="row g-4 fruite">
+                            <div class="col-lg-12">
+                                <div class="input-group w-100 mx-auto d-flex mb-4">
+                                    <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                                    <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                                </div>
+                                <div class="mb-4">
+                                    <h4>Categories</h4>
+                                    <ul class="list-unstyled fruite-categorie">
+                                        <li>
+                                            <div class="d-flex justify-content-between fruite-name">
+                                                <a href=" {% url "examapp:shop" 'ATI' %} "><i class="fas fa-apple-alt me-2"></i>ATIs</a>
+                                                
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex justify-content-between fruite-name">
+                                                <a href=" {% url "examapp:shop" 'HEAS' %} "><i class="fas fa-apple-alt me-2"></i>HEAS</a>
+                                                
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex justify-content-between fruite-name">
+                                                <a href=" {% url "examapp:shop" 'PORTAL EXAMS' %} "><i class="fas fa-apple-alt me-2"></i>PORTAL EXAMS</a>
+                                                
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex justify-content-between fruite-name">
+                                                <a href=" {% url "examapp:shop" 'CANVAS EXAMS' %} "><i class="fas fa-apple-alt me-2"></i>CANVAS EXAMS</a>
+                                                
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex justify-content-between fruite-name">
+                                                <a href=" {% url "examapp:shop" 'ASSIGNMENTS' %} "><i class="fas fa-apple-alt me-2"></i>ASSIGNMENTS</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="position-relative">
+                                    <div class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
+                                        <h3 class="text-secondary fw-bold">recent  <br> revision <br> pastper</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single Product End -->
+<script>
+    $(document).on('click','#add-cart', function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '{% url 'cart:cart_add' %}',
+            data: {
+                service_id: $('#add-cart').val(),
+                service_qty: $('#qty-cart option:selected').text(),
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                action: 'post'
+            },
+            success:function(json){
+                //console.log(json)
+                document.getElementById("cart_quantity").
+                textContent = json.qty
+            },
+            error: function(xhr, errmsg, err){}
+        });
+    })
+</script>
+
+{% endblock content %}

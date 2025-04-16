@@ -1,0 +1,82 @@
+    {% load static %}
+    <!-- header section strats -->
+    <header class="header_section">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="index.html">
+              <span>
+                nursing exam solutions experts
+              </span>
+            </a>
+  
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+  
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              
+              <ul class="navbar-nav  mx-auto ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url "examapp:home" %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown">category</a>
+                    <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                        <a href=" {% url "examapp:home" %} "class="dropdown-item">All</a>
+                        <a href=" {% url "examapp:shop" 'ATI' %}" class="dropdown-item">ATI Exams</a>
+                        <a href=" {% url "examapp:shop" 'HEAS' %}" class="dropdown-item">HEAS Exams</a>
+                        <a href=" {% url "examapp:shop" 'PORTAL EXAMS' %}" class="dropdown-item">portal exams</a>
+                        <a href=" {% url "examapp:shop" 'CANVAS EXAMS' %}" class="dropdown-item">canvas exams</a>
+                        <a href=" {% url "examapp:shop" 'ASSIGNMENTS' %}" class="dropdown-item">Assignments</a>
+                    </div>
+                </li> 
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url "examapp:about" %}">about</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url "examapp:index" %}">Book time</a>
+                </li>
+                {% if user.is_authenticated %}
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url "examapp:logout" %}">
+                    <i class="fa fa-sign-out"></i>
+                </a>
+                </li>
+              </ul>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url "examapp:login" %}">login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url "examapp:register" %}">Register</a>
+              </li>
+              {% endif %}
+              <div class="user_option">
+                <a href="" class="user_link">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                </a>
+                <a class="cart_link" href=" {% url "cart:cart_summary" %} ">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                  </svg>
+                  <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart_quantity">
+                    {{ cart|length }}
+                  </span>
+                </a>
+                <form class="form-inline">
+                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                </form>
+                <a href="" class="order_online">
+                  Order Online
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->

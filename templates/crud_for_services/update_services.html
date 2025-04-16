@@ -1,0 +1,17 @@
+{% extends "commons/base.html" %}
+{% block title %}update{% endblock title %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Update service Picture</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update service</button>
+</form>
+
+{% endblock content %}
