@@ -5,7 +5,7 @@
 <br>
 <br>
 <br>
-<section class="h-100 gradient-form" style="background-color: #eee;">
+<section class="h-100 gradient-form" style="background-color: black; color:white;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-xl-10">
@@ -15,9 +15,9 @@
                 <div class="card-body p-md-5 mx-md-4">
   
                   <div class="text-center">
-                    <img src=" {% static "img/icon.ico" %} "
+                    <img src=" {% static "images/exam.ico" %} "
                       style="width: 185px;" alt="logo">
-                    <h4 class="mt-1 mb-5 pb-1">We are Fruvemart Team</h4>
+                    <h4 class="mt-1 mb-5 pb-1">We are nursing experts</h4>
                   </div>
   
                     <form action="{% url 'examapp:login' %}" method="POST">
@@ -41,14 +41,14 @@
     
                         <div class="d-flex align-items-center justify-content-center pb-4">
                         <p class="mb-0 me-2">Don't have an account?</p>
-                        <a  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-danger" href="{% url "examapp:register" %}">Create new</a>
+                        <a  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-secondary" href="{% url "examapp:register" %}">Create new</a>
                         </div>
     
                     </form>
                 </div>
               </div>
               <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
-                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <div class="text-black px-3 py-4 p-md-5 mx-md-4">
                   <h4 class="mb-4">We are more than just a company</h4>
                   <p class="small mb-0">We are a family with our customers celebrating and growing together .</p>
                 </div>
@@ -59,4 +59,7 @@
       </div>
     </div>
   </section>
+  <br>
+  <br>
+  <br>
 {% endblock content %}
